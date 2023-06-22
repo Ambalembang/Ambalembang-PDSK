@@ -1,0 +1,287 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Root */
+:root {
+  --nav-primary: rgb(48, 25, 52);
+  --nav-second: rgb(54, 69, 79);
+  --text-primary: #daf7a6;
+  --text-second: rgb(211, 243, 151);
+  --border-color: #191970;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Nav Section */
+nav {
+  display: flex;
+  background-color: var(--nav-primary);
+  justify-content: space-around;
+  padding: 20px 0;
+  align-items: center;
+}
+
+nav .logo a {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+nav .logo {
+  font-family: "Monoton", cursive;
+  font-size: 2em;
+  letter-spacing: 4px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 30%;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  font-family: "Bebas Neue", sans-serif;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 2em;
+}
+
+/* Hamburger Span */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -5px;
+  top: -3px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: var(--text-primary);
+  transition: 0.5s;
+}
+
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Titles */
+
+.pre-title {
+  letter-spacing: 0.5rem;
+  color: var(--text-second);
+  padding-left: 40px;
+  width: fit-content;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.section-title {
+  margin: 1rem 0 4rem;
+  font-size: 2rem;
+}
+
+/* Layout */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+/* Hero Section */
+
+#hero {
+  padding: 50px 50px;
+  height: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--nav-second);
+  align-items: center;
+}
+
+.hero-name {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+}
+
+.hero-name span {
+  color: var(--text-second);
+}
+
+.hero-left p {
+  color: var(--text-primary);
+}
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+/* Project Section */
+#project {
+  padding: 6rem 4rem;
+  background-color: var(--nav-second);
+}
+
+.project {
+  border-radius: 0.7rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.project-cover {
+  height: 250px;
+}
+
+.project-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 2rem 1.5rem;
+}
+
+.project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project h4 {
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.project-title a svg:hover {
+  fill: var(--border-color);
+}
+
+.project-title a svg {
+  transition: 0.2s ease-in-out;
+}
+
+.project-tags div {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  background-color: var(--nav-primary);
+  padding: 0.4rem 1rem;
+  text-align: center;
+}
+
+/* Skill Section */
+
+#skills {
+  padding: 6rem 4rem;
+  background-color: var(--nav-second);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.education {
+  display: flex;
+  gap: 1rem;
+}
+
+.education .line {
+  padding: 0 0.7rem;
+}
+
+.education .line div {
+  width: 2px;
+  height: 100%;
+  background: var(--border-color);
+  position: relative;
+}
+
+.education-info p {
+  margin: 0.6rem 0 1.4rem;
+}
+
+.education-years {
+  margin-bottom: 3rem;
+}
+
+/* Responsive Breakpoint */
+
+/* Tablet */
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+}
+
+/* Mobile */
+
+@media screen and (max-width: 576px) {
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--nav-primary);
+    z-index: 0;
+    transform: translateY(-100%);
+    transition: all 1s;
+    opacity: 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul.slide {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
